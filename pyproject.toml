@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pwftoolbox"
+version = "0.1.0"
+description = "Leitura e escrita de arquivos .PWF do ANAREDE em pandas DataFrames."
+readme = "README.md"
+license-files = ["LICENSE"]
+authors = [
+    {name = "Samir Ferreira"},
+    {name = "Lucas Simões"},
+    {name = "Miguel Sampaio"},
+]
+requires-python = ">=3.10"
+dependencies = [
+    "pandas",
+    "numpy",
+]
+
+[project.urls]
+Repository = "https://github.com/EPE-GOV-BR/pwftoolbox"
+Issues = "https://github.com/EPE-GOV-BR/pwftoolbox/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+pwftoolbox = ["*.json"]

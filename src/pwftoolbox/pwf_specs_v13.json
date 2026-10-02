@@ -1,0 +1,2971 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Especificacoes dos dados em PWF do ANAREDE v13.1.2",
+  "description": "Dados dos codigos de execucao de arquivos .pwf lidos pelo parser-pwf.py. DTPF apenas com opcao CIRC e DVSC apenas do modelo completo.",
+  "version": 1,
+  "cod_exec": {
+    "DAGR": {
+      "has_terminator": true,
+      "header_suffix": "",
+      "multiline_separator": "FAGR",
+      "header_field_count": 2,
+      "fields": {
+        "AG": {
+          "name": "Numero do Agregador",
+          "description": "Identificador do agregador (1 a 10).",
+          "colspec": {"start": 0, "end": 3},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "Descricao": {
+          "name": "Descricao do Agregador",
+          "description": "Identificacao alfanumerica do agregador.",
+          "colspec": {"start": 4, "end": 40},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "ID": {
+          "name": "Numero da Ocorrencia",
+          "description": "Identificador numerico da ocorrencia do agregador.",
+          "colspec": {"start": 41, "end": 44},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "O": {
+          "name": "Operacao da Ocorrencia",
+          "description": "A/0 adicao, E/1 eliminacao, M/2 modificacao de ocorrencia.",
+          "colspec": {"start": 44, "end": 45},
+          "type": "str",
+          "required": false,
+          "default": "A"
+        },
+        "Nome": {
+          "name": "Descricao da Ocorrencia",
+          "description": "Identificacao alfanumerica da ocorrencia do agregador.",
+          "colspec": {"start": 45, "end": 83},
+          "type": "str",
+          "required": false,
+          "default": null
+        }
+      }
+    },
+    "DBAR": {
+      "has_terminator": true,
+      "header_suffix": "",
+      "multiline_separator": null,
+      "header_field_count": null,
+      "fields": {
+        "Num": {
+          "name": "Numero",
+          "description": "Numero de identificacao da barra CA.",
+          "colspec": {"start": 0, "end": 5},
+          "type": "int",
+          "required": true,
+          "default": null
+        },
+        "O": {
+          "name": "Operacao",
+          "description": "A/0 adicao, E/1 eliminacao, M/2 modificacao de dados de barra.",
+          "colspec": {"start": 5, "end": 6},
+          "type": "str",
+          "required": false,
+          "default": "A"
+        },
+        "E": {
+          "name": "Estado",
+          "description": "L ligado; D desligado.",
+          "colspec": {"start": 6, "end": 7},
+          "type": "str",
+          "required": false,
+          "default": "L"
+        },
+        "T": {
+          "name": "Tipo",
+          "description": "0 PQ, 1 PV, 2 referencia, 3 PQ com limite de tensao.",
+          "colspec": {"start": 7, "end": 8},
+          "type": "str",
+          "required": false,
+          "default": "0"
+        },
+        "Gb": {
+          "name": "Grupo de Base de Tensao",
+          "description": "Identificador do grupo base de tensao definido em DGBT.",
+          "colspec": {"start": 8, "end": 10},
+          "type": "str",
+          "required": false,
+          "default": "0"
+        },
+        "Nome": {
+          "name": "Nome",
+          "description": "Identificacao alfanumerica da barra.",
+          "colspec": {"start": 10, "end": 22},
+          "type": "str",
+          "required": true,
+          "default": null
+        },
+        "Gl": {
+          "name": "Grupo de Limite de Tensao",
+          "description": "Identificador do grupo de limite de tensao definido em DGLT.",
+          "colspec": {"start": 22, "end": 24},
+          "type": "str",
+          "required": false,
+          "default": "0"
+        },
+        "V": {
+          "name": "Tensao",
+          "description": "Magnitude inicial da tensao em p.u. (decimal implicito).",
+          "colspec": {"start": 24, "end": 28},
+          "type": "float",
+          "required": false,
+          "default": 1.0,
+          "implicit_scale": 3,
+          "preserve_trailing_dot": true
+        },
+        "A": {
+          "name": "Angulo",
+          "description": "Angulo inicial de fase da tensao em graus.",
+          "colspec": {"start": 28, "end": 32},
+          "type": "float",
+          "required": false,
+          "default": 0.0
+        },
+        "Pg": {
+          "name": "Geracao Ativa",
+          "description": "Geracao ativa na barra em MW.",
+          "colspec": {"start": 32, "end": 37},
+          "type": "float",
+          "required": false,
+          "default": 0.0
+        },
+        "Qg": {
+          "name": "Geracao Reativa",
+          "description": "Geracao reativa na barra em Mvar.",
+          "colspec": {"start": 37, "end": 42},
+          "type": "float",
+          "required": false,
+          "default": 0.0
+        },
+        "Qn": {
+          "name": "Geracao Reativa Minima",
+          "description": "Limite minimo de geracao reativa em Mvar.",
+          "colspec": {"start": 42, "end": 47},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Qm": {
+          "name": "Geracao Reativa Maxima",
+          "description": "Limite maximo de geracao reativa em Mvar.",
+          "colspec": {"start": 47, "end": 52},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Bc": {
+          "name": "Barra Controlada",
+          "description": "Numero da barra cuja tensao sera controlada.",
+          "colspec": {"start": 52, "end": 58},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "Pl": {
+          "name": "Carga Ativa",
+          "description": "Carga ativa da barra em MW.",
+          "colspec": {"start": 58, "end": 63},
+          "type": "float",
+          "required": false,
+          "default": 0.0
+        },
+        "Ql": {
+          "name": "Carga Reativa",
+          "description": "Carga reativa da barra em Mvar.",
+          "colspec": {"start": 63, "end": 68},
+          "type": "float",
+          "required": false,
+          "default": 0.0
+        },
+        "Sh": {
+          "name": "Capacitor Reator",
+          "description": "Injecao reativa total de bancos em Mvar.",
+          "colspec": {"start": 68, "end": 73},
+          "type": "float",
+          "required": false,
+          "default": 0.0
+        },
+        "Are": {
+          "name": "Area",
+          "description": "Numero da area da barra.",
+          "colspec": {"start": 73, "end": 76},
+          "type": "int",
+          "required": false,
+          "default": 1
+        },
+        "Vf": {
+          "name": "Tensao para Definicao de Carga",
+          "description": "Tensao em p.u. usada para medir a carga (decimal implicito).",
+          "colspec": {"start": 76, "end": 80},
+          "type": "float",
+          "required": false,
+          "default": 1.0,
+          "implicit_scale": 3,
+          "preserve_trailing_dot": true
+        },
+        "M": {
+          "name": "Modo de Visualizacao",
+          "description": "0 normal, 1 midpoint, 2 auxiliar.",
+          "colspec": {"start": 80, "end": 81},
+          "type": "int",
+          "required": false,
+          "default": 0
+        },
+        "A1": {
+          "name": "Agregador 1",
+          "description": "Numero da ocorrencia do agregador 1.",
+          "colspec": {"start": 81, "end": 84},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "A2": {
+          "name": "Agregador 2",
+          "description": "Numero da ocorrencia do agregador 2.",
+          "colspec": {"start": 84, "end": 87},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "A3": {
+          "name": "Agregador 3",
+          "description": "Numero da ocorrencia do agregador 3.",
+          "colspec": {"start": 87, "end": 90},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "A4": {
+          "name": "Agregador 4",
+          "description": "Numero da ocorrencia do agregador 4.",
+          "colspec": {"start": 90, "end": 93},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "A5": {
+          "name": "Agregador 5",
+          "description": "Numero da ocorrencia do agregador 5.",
+          "colspec": {"start": 93, "end": 96},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "A6": {
+          "name": "Agregador 6",
+          "description": "Numero da ocorrencia do agregador 6.",
+          "colspec": {"start": 96, "end": 99},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "A7": {
+          "name": "Agregador 7",
+          "description": "Numero da ocorrencia do agregador 7.",
+          "colspec": {"start": 99, "end": 102},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "A8": {
+          "name": "Agregador 8",
+          "description": "Numero da ocorrencia do agregador 8.",
+          "colspec": {"start": 102, "end": 105},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "A9": {
+          "name": "Agregador 9",
+          "description": "Numero da ocorrencia do agregador 9.",
+          "colspec": {"start": 105, "end": 108},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "A10": {
+          "name": "Agregador 10",
+          "description": "Numero da ocorrencia do agregador 10.",
+          "colspec": {"start": 108, "end": 111},
+          "type": "int",
+          "required": false,
+          "default": null
+        }
+      }
+    },
+    "DLIN": {
+      "has_terminator": true,
+      "header_suffix": "",
+      "multiline_separator": null,
+      "header_field_count": null,
+      "fields": {
+        "De": {
+          "name": "Da Barra",
+          "description": "Numero da barra de uma extremidade do circuito como definido no campo Numero do DBAR.",
+          "colspec": {"start": 0, "end": 5},
+          "type": "int",
+          "required": true,
+          "default": null
+        },
+        "Dde": {
+          "name": "Abertura Da Barra",
+          "description": "L ligado; D desligado no lado De.",
+          "colspec": {"start": 5, "end": 6},
+          "type": "str",
+          "required": false,
+          "default": "L"
+        },
+        "O": {
+          "name": "Operacao",
+          "description": "A/0 adicao, E/1 eliminacao, M/2 modificacao de dados de circuito.",
+          "colspec": {"start": 7, "end": 8},
+          "type": "str",
+          "required": false,
+          "default": "A"
+        },
+        "Dpara": {
+          "name": "Abertura Para Barra",
+          "description": "L ligado; D desligado no lado da barra Para.",
+          "colspec": {"start": 9, "end": 10},
+          "type": "str",
+          "required": false,
+          "default": "L"
+        },
+        "Para": {
+          "name": "Para Barra",
+          "description": "Numero da barra da outra extremidade do circuito como definido no campo Numero do DBAR.",
+          "colspec": {"start": 10, "end": 15},
+          "type": "int",
+          "required": true,
+          "default": null
+        },
+        "Nc": {
+          "name": "Circuito",
+          "description": "Numero de identificacao do circuito CA em paralelo.",
+          "colspec": {"start": 15, "end": 17},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "E": {
+          "name": "Estado",
+          "description": "L ligado; D desligado.",
+          "colspec": {"start": 17, "end": 18},
+          "type": "str",
+          "required": false,
+          "default": "L"
+        },
+        "P": {
+          "name": "Proprietario",
+          "description": "F area da barra De; T area da barra Para.",
+          "colspec": {"start": 18, "end": 19},
+          "type": "str",
+          "required": false,
+          "default": "F"
+        },
+        "M": {
+          "name": "Modo de Controle",
+          "description": "A automatico; M manual para transformadores com controle de tensao.",
+          "colspec": {"start": 19, "end": 20},
+          "type": "str",
+          "required": false,
+          "default": "A"
+        },
+        "R": {
+          "name": "Resistencia",
+          "description": "Resistencia do circuito em %. Para transformador este valor e para o tap nominal.",
+          "colspec": {"start": 20, "end": 26},
+          "type": "float",
+          "required": false,
+          "default": 0.0,
+          "implicit_scale": 2,
+          "preserve_trailing_dot": true
+        },
+        "X": {
+          "name": "Reatancia",
+          "description": "Reatancia do circuito em %. Para transformador este valor e para o tap nominal.",
+          "colspec": {"start": 26, "end": 32},
+          "type": "float",
+          "required": false,
+          "default": null,
+          "implicit_scale": 2,
+          "preserve_trailing_dot": true
+        },
+        "Mvar": {
+          "name": "Susceptancia",
+          "description": "Susceptancia shunt total do circuito em Mvar.",
+          "colspec": {"start": 32, "end": 38},
+          "type": "float",
+          "required": false,
+          "default": 0.0,
+          "implicit_scale": 3,
+          "preserve_trailing_dot": true
+        },
+        "Tap": {
+          "name": "Tap",
+          "description": "Tap da barra De em p.u..",
+          "colspec": {"start": 38, "end": 43},
+          "type": "float",
+          "required": false,
+          "default": null,
+          "implicit_scale": 3,
+          "preserve_trailing_dot": true
+        },
+        "Tmn": {
+          "name": "Tap Minimo",
+          "description": "Valor minimo do tap em p.u..",
+          "colspec": {"start": 43, "end": 48},
+          "type": "float",
+          "required": false,
+          "default": null,
+          "implicit_scale": 3,
+          "preserve_trailing_dot": true
+        },
+        "Tmx": {
+          "name": "Tap Maximo",
+          "description": "Valor maximo do tap em p.u..",
+          "colspec": {"start": 48, "end": 53},
+          "type": "float",
+          "required": false,
+          "default": null,
+          "implicit_scale": 3,
+          "preserve_trailing_dot": true
+        },
+        "Phs": {
+          "name": "Defasagem",
+          "description": "Angulo de defasagem em graus para transformadores defasadores em relacao a barra De.",
+          "colspec": {"start": 53, "end": 58},
+          "type": "float",
+          "required": false,
+          "default": 0.0,
+          "implicit_scale": 2,
+          "preserve_trailing_dot": true
+        },
+        "Bc": {
+          "name": "Barra Controlada",
+          "description": "Barra cuja magnitude de tensao deve ser controlada.Se a barra controlada nao for uma das barras definidas nos campos Da Barra ou Para Barra, deve ser associado um sinal ao numero desta barra que determine a direcao do movimento do tap no sentido de aumentar a magnitude da tensao da barra controlada. Positivo para lado Da e negativo para lado Para.",
+          "colspec": {"start": 58, "end": 64},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "Cn": {
+          "name": "Capacidade Normal",
+          "description": "Capacidade de carregamento normal em MVA.",
+          "colspec": {"start": 64, "end": 68},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Ce": {
+          "name": "Capacidade em Emergencia",
+          "description": "Capacidade de carregamento em emergencia em MVA.",
+          "colspec": {"start": 68, "end": 72},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Ns": {
+          "name": "Numero de Taps",
+          "description": "Numero de posicoes do transformador de tap variavel, incluindo o min e max.",
+          "colspec": {"start": 72, "end": 74},
+          "type": "int",
+          "required": false,
+          "default": 33
+        },
+        "Cq": {
+          "name": "Capacidade de Equipamento",
+          "description": "Capacidade do equipamento de menor limite conectado ao circuito.",
+          "colspec": {"start": 74, "end": 78},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "A1": {
+          "name": "Agregador 1",
+          "description": "Numero da ocorrencia do agregador 1.",
+          "colspec": {"start": 78, "end": 81},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "A2": {
+          "name": "Agregador 2",
+          "description": "Numero da ocorrencia do agregador 2.",
+          "colspec": {"start": 81, "end": 84},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "A3": {
+          "name": "Agregador 3",
+          "description": "Numero da ocorrencia do agregador 3.",
+          "colspec": {"start": 84, "end": 87},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "A4": {
+          "name": "Agregador 4",
+          "description": "Numero da ocorrencia do agregador 4.",
+          "colspec": {"start": 87, "end": 90},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "A5": {
+          "name": "Agregador 5",
+          "description": "Numero da ocorrencia do agregador 5.",
+          "colspec": {"start": 90, "end": 93},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "A6": {
+          "name": "Agregador 6",
+          "description": "Numero da ocorrencia do agregador 6.",
+          "colspec": {"start": 93, "end": 96},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "A7": {
+          "name": "Agregador 7",
+          "description": "Numero da ocorrencia do agregador 7.",
+          "colspec": {"start": 96, "end": 99},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "A8": {
+          "name": "Agregador 8",
+          "description": "Numero da ocorrencia do agregador 8.",
+          "colspec": {"start": 99, "end": 102},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "A9": {
+          "name": "Agregador 9",
+          "description": "Numero da ocorrencia do agregador 9.",
+          "colspec": {"start": 102, "end": 105},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "A10": {
+          "name": "Agregador 10",
+          "description": "Numero da ocorrencia do agregador 10.",
+          "colspec": {"start": 105, "end": 108},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "U": {
+          "name": "Numero de Unidades",
+          "description": "Numero maximo de unidades do transformador.",
+          "colspec": {"start": 109, "end": 112},
+          "type": "str",
+          "required": false,
+          "default": "1"
+        },
+        "Uop": {
+          "name": "Numero de Unidades em Operacao",
+          "description": "Numero de unidades em operacao do transformador.",
+          "colspec": {"start": 113, "end": 116},
+          "type": "str",
+          "required": false,
+          "default": "1"
+        }
+      }
+    },
+    "DSHL": {
+      "has_terminator": true,
+      "header_suffix": "",
+      "multiline_separator": null,
+      "header_field_count": null,
+      "fields": {
+        "De": {
+          "name": "Da Barra",
+          "description": "Numero da barra de uma das extremidades do circuito CA como definido no campo Numero do Codigo de Execucao DBAR.",
+          "colspec": {"start": 0, "end": 5},
+          "type": "int",
+          "required": true,
+          "default": null
+        },
+        "O": {
+          "name": "Operacao",
+          "description": "A ou 0 - adicao de dados de dispositivo shunt de circuito CA. E ou 1 - eliminacao de dados de dispositivo shunt de circuito CA. M ou 2 - modificacao de dados de dispositivo de shunt de circuito CA.",
+          "colspec": {"start": 6, "end": 7},
+          "type": "str",
+          "required": false,
+          "default": "A"
+        },
+        "Para": {
+          "name": "Para Barra",
+          "description": "Numero da barra da outra extremidade do circuito como definido no campo Numero do Codigo de Execucao DBAR.",
+          "colspec": {"start": 9, "end": 14},
+          "type": "int",
+          "required": true,
+          "default": null
+        },
+        "Nc": {
+          "name": "Circuito",
+          "description": "Numero de identificacao da circuito CA em paralelo.",
+          "colspec": {"start": 14, "end": 16},
+          "type": "int",
+          "required": true,
+          "default": null
+        },
+        "Shde": {
+          "name": "Shunt De",
+          "description": "Potencia reativa dos shunts na extremidade definida no campo Da Barra para tensao nominal (1.0 p.u.), em Mvar. Este valor deve ser negativo para reatores.",
+          "colspec": {"start": 17, "end": 23},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Shpara": {
+          "name": "Shunt Para",
+          "description": "Potencia reativa dos shunts na extremidade definida no campo Para Barra para tensao nominal (1.0 p.u.), em Mvar. Este valor deve ser negativo para reatores.",
+          "colspec": {"start": 23, "end": 29},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Ed": {
+          "name": "Estado Shunt",
+          "description": "L se o shunt de linha desta extremidade estiver em operao (ligado). D se o shunt de linha desta extremidade estiver fora de operao (desligado).",
+          "colspec": {"start": 30, "end": 32},
+          "type": "str",
+          "required": false,
+          "default": "L"
+        },
+        "Ep": {
+          "name": "Estado Shunt",
+          "description": "L se o shunt de linha desta extremidade estiver em operao (ligado). D se o shunt de linha desta extremidade estiver fora de operao (desligado). 2-134 Cdigos de Execuo",
+          "colspec": {"start": 33, "end": 35},
+          "type": "str",
+          "required": false,
+          "default": "L"
+        }
+      }
+    },
+    "DBSH": {
+      "has_terminator": true,
+      "header_suffix": "",
+      "multiline_separator": "FBAN",
+      "header_field_count": 12,
+      "fields": {
+        "De": {
+          "name": "Da Barra",
+          "description": "Barra terminal onde o banco esta conectado o Shunt ou a barra Da para o banco de capacitores/reatores de linha.",
+          "colspec": {"start": 0, "end": 5},
+          "type": "int",
+          "required": true,
+          "default": null
+        },
+        "O": {
+          "name": "Operacao",
+          "description": "A/0 adicao, E/1 eliminacao, M/2 modificacao.",
+          "colspec": {"start": 6, "end": 7},
+          "type": "str",
+          "required": false,
+          "default": "A"
+        },
+        "Para": {
+          "name": "Para Barra",
+          "description": "Barra da outra extremidade para banco conectado em linha.",
+          "colspec": {"start": 8, "end": 13},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "Nc": {
+          "name": "Circuito",
+          "description": "Numero de identificacao do circuito CA em paralelo.",
+          "colspec": {"start": 14, "end": 16},
+          "type": "int",
+          "required": false,
+          "default": 1
+        },
+        "C": {
+          "name": "Modo de Controle",
+          "description": "C continuo, D discreto, F fixo.",
+          "colspec": {"start": 17, "end": 18},
+          "type": "str",
+          "required": false,
+          "default": "F"
+        },
+        "Vmn": {
+          "name": "Tensao Minima",
+          "description": "Limite minimo da faixa de tensao de controle.",
+          "colspec": {"start": 19, "end": 23},
+          "type": "float",
+          "required": false,
+          "default": null,
+          "implicit_scale": 3,
+          "preserve_trailing_dot": true
+        },
+        "Vmx": {
+          "name": "Tensao Maxima",
+          "description": "Limite maximo da faixa de tensao de controle.",
+          "colspec": {"start": 24, "end": 28},
+          "type": "float",
+          "required": false,
+          "default": null,
+          "implicit_scale": 3,
+          "preserve_trailing_dot": true
+        },
+        "Bctrl": {
+          "name": "Barra Controlada",
+          "description": "Barra cuja tensao sera controlada pelo chaveamento dos bancos.",
+          "colspec": {"start": 29, "end": 34},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "Qini": {
+          "name": "Injecao Reativa Inicial",
+          "description": "Injecao inicial total de potencia reativa em Mvar. Para modo de controle F determina o valor efetivamente injetado.",
+          "colspec": {"start": 35, "end": 41},
+          "type": "float",
+          "required": false,
+          "default": 0.0
+        },
+        "T": {
+          "name": "Tipo do Controle",
+          "description": "C controle pelo centro da faixa; L controle pelo limite violado da faixa de tensao.",
+          "colspec": {"start": 42, "end": 43},
+          "type": "str",
+          "required": false,
+          "default": "C"
+        },
+        "A": {
+          "name": "Apaga Dados DBAR",
+          "description": "S apaga o valor de capacitor/reator em DBAR; N mantem.",
+          "colspec": {"start": 44, "end": 45},
+          "type": "str",
+          "required": false,
+          "default": "N"
+        },
+        "Extr": {
+          "name": "Extremidade",
+          "description": "Numero da barra da extremidade do circuito na qual esta conectado o banco shunt.",
+          "colspec": {"start": 46, "end": 51},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "G": {
+          "name": "Grupo ou Banco",
+          "description": "Identificacao do grupo do banco de capacitores/reatores.",
+          "colspec": {"start": 52, "end": 54},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "Og": {
+          "name": "Operacao do Grupo",
+          "description": "A/0 adicao, E/1 eliminacao, M/2 modificacao de grupo.",
+          "colspec": {"start": 55, "end": 57},
+          "type": "str",
+          "required": false,
+          "default": "A"
+        },
+        "E": {
+          "name": "Estado do Grupo",
+          "description": "L ligado; D desligado.",
+          "colspec": {"start": 57, "end": 59},
+          "type": "str",
+          "required": false,
+          "default": "L"
+        },
+        "U": {
+          "name": "Unidades",
+          "description": "Numero total de unidades iguais do grupo.",
+          "colspec": {"start": 59, "end": 63},
+          "type": "int",
+          "required": false,
+          "default": 1
+        },
+        "Uop": {
+          "name": "Unidades em Operacao",
+          "description": "Numero de unidades efetivamente em operacao.",
+          "colspec": {"start": 63, "end": 67},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "Sht": {
+          "name": "Capacitor Reator",
+          "description": "Potencia reativa por unidade em Mvar. O valor refere-se a potencia reativa injetada na tensao nominal (1 p.u.). Positivo para capacitor e negativo para reator.",
+          "colspec": {"start": 67, "end": 74},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "M": {
+          "name": "Manobravel",
+          "description": "S manobravel; N nao manobravel.",
+          "colspec": {"start": 75, "end": 76},
+          "type": "str",
+          "required": false,
+          "default": "S"
+        }
+      }
+    },
+    "TITU": {
+      "has_terminator": false,
+      "header_suffix": "",
+      "multiline_separator": null,
+      "header_field_count": null,
+      "fields": {
+        "Titulo": {
+          "name": "Titulo",
+          "description": "Identificacao alfanumerica para o caso em estudo.",
+          "colspec": {"start": 0, "end": 80},
+          "type": "str",
+          "required": false,
+          "default": null
+        }
+      }
+    },
+    "DOPC": {
+      "has_terminator": true,
+      "header_suffix": "",
+      "multiline_separator": null,
+      "header_field_count": null,
+      "fields": {
+        "Op1": {
+          "name": "Opcao 1",
+          "description": "Mnemnico da Opcao de Controle de Execucao padrao.",
+          "colspec": {"start": 0, "end": 4},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "E1": {
+          "name": "Padrao 1",
+          "description": "Estado padrao da Opcao: L - liga opcao de execucao. D - desliga opcao de execucao.",
+          "colspec": {"start": 5, "end": 6},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "Op2": {
+          "name": "Opcao 2",
+          "description": "Mnemnico da Opcao de Controle de Execucao padrao.",
+          "colspec": {"start": 7, "end": 11},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "E2": {
+          "name": "Padrao 2",
+          "description": "Estado padrao da Opcao: L - liga opcao de execucao. D - desliga opcao de execucao.",
+          "colspec": {"start": 12, "end": 13},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "Op3": {
+          "name": "Opcao 3",
+          "description": "Mnemnico da Opcao de Controle de Execucao padrao.",
+          "colspec": {"start": 14, "end": 18},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "E3": {
+          "name": "Padrao 3",
+          "description": "Estado padrao da Opcao: L - liga opcao de execucao. D - desliga opcao de execucao.",
+          "colspec": {"start": 19, "end": 20},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "Op4": {
+          "name": "Opcao 4",
+          "description": "Mnemnico da Opcao de Controle de Execucao padrao.",
+          "colspec": {"start": 21, "end": 25},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "E4": {
+          "name": "Padrao 4",
+          "description": "Estado padrao da Opcao: L - liga opcao de execucao. D - desliga opcao de execucao.",
+          "colspec": {"start": 26, "end": 27},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "Op5": {
+          "name": "Opcao 5",
+          "description": "Mnemnico da Opcao de Controle de Execucao padrao.",
+          "colspec": {"start": 28, "end": 32},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "E5": {
+          "name": "Padrao 5",
+          "description": "Estado padrao da Opcao: L - liga opcao de execucao. D - desliga opcao de execucao.",
+          "colspec": {"start": 33, "end": 34},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "Op6": {
+          "name": "Opcao 6",
+          "description": "Mnemnico da Opcao de Controle de Execucao padrao.",
+          "colspec": {"start": 35, "end": 39},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "E6": {
+          "name": "Padrao 6",
+          "description": "Estado padrao da Opcao: L - liga opcao de execucao. D - desliga opcao de execucao.",
+          "colspec": {"start": 40, "end": 41},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "Op7": {
+          "name": "Opcao 7",
+          "description": "Mnemnico da Opcao de Controle de Execucao padrao.",
+          "colspec": {"start": 42, "end": 46},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "E7": {
+          "name": "Padrao 7",
+          "description": "Estado padrao da Opcao: L - liga opcao de execucao. D - desliga opcao de execucao.",
+          "colspec": {"start": 47, "end": 48},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "Op8": {
+          "name": "Opcao 8",
+          "description": "Mnemnico da Opcao de Controle de Execucao padrao.",
+          "colspec": {"start": 49, "end": 53},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "E8": {
+          "name": "Padrao 8",
+          "description": "Estado padrao da Opcao: L - liga opcao de execucao. D - desliga opcao de execucao.",
+          "colspec": {"start": 54, "end": 55},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "Op9": {
+          "name": "Opcao 9",
+          "description": "Mnemnico da Opcao de Controle de Execucao padrao.",
+          "colspec": {"start": 56, "end": 60},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "E9": {
+          "name": "Padrao 9",
+          "description": "Estado padrao da Opcao: L - liga opcao de execucao. D - desliga opcao de execucao.",
+          "colspec": {"start": 61, "end": 62},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "Op10": {
+          "name": "Opcao 10",
+          "description": "Mnemnico da Opcao de Controle de Execucao padrao.",
+          "colspec": {"start": 63, "end": 67},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "E10": {
+          "name": "Padrao 10",
+          "description": "Estado padrao da Opcao: L - liga opcao de execucao. D - desliga opcao de execucao.",
+          "colspec": {"start": 68, "end": 69},
+          "type": "str",
+          "required": false,
+          "default": null
+        }
+      }
+    },
+    "DCTE": {
+      "has_terminator": true,
+      "header_suffix": "",
+      "multiline_separator": null,
+      "header_field_count": null,
+      "fields": {
+        "Mn1": {
+          "name": "Mnemnico 1",
+          "description": "Mnemonicos correspondentes as constantes a serem modificadas..",
+          "colspec": {"start": 0, "end": 4},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "Val1": {
+          "name": "Constante 1",
+          "description": "Constantes associadas aos mnemonicos definido no campo do Mnemnico.",
+          "colspec": {"start": 5, "end": 11},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "Mn2": {
+          "name": "Mnemnico 2",
+          "description": "Mnemonicos correspondentes as constantes a serem modificadas.",
+          "colspec": {"start": 12, "end": 16},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "Val2": {
+          "name": "Constante 2",
+          "description": "Constantes associadas aos mnemonicos definido no campo do Mnemnico.",
+          "colspec": {"start": 17, "end": 23},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "Mn3": {
+          "name": "Mnemnico 3",
+          "description": "Mnemonicos correspondentes as constantes a serem modificadas.",
+          "colspec": {"start": 24, "end": 28},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "Val3": {
+          "name": "Constante 3",
+          "description": "Constantes associadas aos mnemonicos definido no campo do Mnemnico.",
+          "colspec": {"start": 29, "end": 35},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "Mn4": {
+          "name": "Mnemnico 4",
+          "description": "Mnemonicos correspondentes as constantes a serem modificadas.",
+          "colspec": {"start": 36, "end": 40},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "Val4": {
+          "name": "Constante 4",
+          "description": "Constantes associadas aos mnemonicos definido no campo do Mnemnico.",
+          "colspec": {"start": 41, "end": 47},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "Mn5": {
+          "name": "Mnemnico 5",
+          "description": "Mnemonicos correspondentes as constantes a serem modificadas.",
+          "colspec": {"start": 48, "end": 52},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "Val5": {
+          "name": "Constante 5",
+          "description": "Constantes associadas aos mnemonicos definido no campo do Mnemnico.",
+          "colspec": {"start": 53, "end": 59},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "Mn6": {
+          "name": "Mnemnico 6",
+          "description": "Mnemonicos correspondentes as constantes a serem modificadas.",
+          "colspec": {"start": 60, "end": 64},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "Val6": {
+          "name": "Constante 6",
+          "description": "Constantes associadas aos mnemonicos definido no campo do Mnemnico.",
+          "colspec": {"start": 65, "end": 71},
+          "type": "str",
+          "required": false,
+          "default": null
+        }
+      }
+    },
+    "DGER": {
+      "has_terminator": true,
+      "header_suffix": "",
+      "multiline_separator": null,
+      "header_field_count": null,
+      "fields": {
+        "Num": {
+          "name": "Numero",
+          "description": "Numero da barra, como definido no campo Numero do Codigo de Execucao DBAR.",
+          "colspec": {"start": 0, "end": 5},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "O": {
+          "name": "Operacao",
+          "description": "A ou 0 - adicao de dados. M ou 2 - modificacao de dados",
+          "colspec": {"start": 6, "end": 7},
+          "type": "str",
+          "required": false,
+          "default": "A"
+        },
+        "Pmn": {
+          "name": "Geracao Ativa Minima",
+          "description": "Valor do limite minimo de geracao de potencia ativa na barra, em MW.",
+          "colspec": {"start": 8, "end": 14},
+          "type": "float",
+          "required": false,
+          "default": 0.0
+        },
+        "Pmx": {
+          "name": "Geracao Ativa Maxima",
+          "description": "Valor do limite maximo de geracao de potencia ativa na barra, em MW.",
+          "colspec": {"start": 15, "end": 21},
+          "type": "float",
+          "required": false,
+          "default": 99999.0
+        },
+        "Fp": {
+          "name": "Fator de Participacao",
+          "description": "Valor do fator de participacao da barra de geracao, em %.",
+          "colspec": {"start": 22, "end": 27},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "FpR": {
+          "name": "Fator de Participacao de Controle Remoto",
+          "description": "Fator de participacao do gerador na quantidade de potencia reativa necessaria para o controle de tensao de barra remota em %.",
+          "colspec": {"start": 28, "end": 33},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "FPn": {
+          "name": "Fator de Potencia Nominal",
+          "description": "Fator de Potencia Nominal da Maquina.",
+          "colspec": {"start": 34, "end": 39},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Fa": {
+          "name": "Fator de Servico da Armadura",
+          "description": "Fator de Servico da corrente de armadura, em %",
+          "colspec": {"start": 40, "end": 44},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Fr": {
+          "name": "Fator de Servico do Rotor",
+          "description": "Fator de Servico da corrente do rotor, em %.",
+          "colspec": {"start": 45, "end": 49},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Ag": {
+          "name": "Angulo de Carga",
+          "description": "Angulo de carga maximo (0.0 85.0 ), em graus.",
+          "colspec": {"start": 50, "end": 54},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Xq": {
+          "name": "Reatancia da maquina",
+          "description": "Reatancia da Maquina, em %.",
+          "colspec": {"start": 55, "end": 60},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Sno": {
+          "name": "Potencia aparente nominal",
+          "description": "Potencia aparente nominal de maquina, em MVA.",
+          "colspec": {"start": 61, "end": 66},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Est": {
+          "name": "Estatismo",
+          "description": "Estatismo do regulador de velocidade da maquina, em % na base sistema.",
+          "colspec": {"start": 67, "end": 72},
+          "type": "float",
+          "required": false,
+          "default": 0.0
+        }
+      }
+    },
+    "DCSC": {
+      "has_terminator": true,
+      "header_suffix": "",
+      "multiline_separator": null,
+      "header_field_count": null,
+      "fields": {
+        "De": {
+          "name": "Da Barra",
+          "description": "Numero da barra de uma das extremidades do CSC como definido no campo Numero do Codigo de Execucao DBAR.",
+          "colspec": {"start": 0, "end": 5},
+          "type": "int",
+          "required": true,
+          "default": null
+        },
+        "O": {
+          "name": "Operacao",
+          "description": "A ou 0 - adicao de dados de CSC. E ou 1 - eliminacao de dados de CSC. M ou 2 - modificacao de dados de CSC.",
+          "colspec": {"start": 6, "end": 7},
+          "type": "str",
+          "required": false,
+          "default": "A"
+        },
+        "Para": {
+          "name": "Para Barra",
+          "description": "Numero da barra da outra extremidade do CSC como definido no campo Numero do Codigo de Execucao DBAR.",
+          "colspec": {"start": 9, "end": 14},
+          "type": "int",
+          "required": true,
+          "default": null
+        },
+        "Nc": {
+          "name": "Circuito",
+          "description": "Numero de identificacao do circuito CA em paralelo.",
+          "colspec": {"start": 14, "end": 16},
+          "type": "int",
+          "required": true,
+          "default": null
+        },
+        "E": {
+          "name": "Estado",
+          "description": "L se o circuito estiver em operacao (ligado). D se o circuito estiver fora de operacao (desligado).",
+          "colspec": {"start": 16, "end": 17},
+          "type": "str",
+          "required": false,
+          "default": "L"
+        },
+        "P": {
+          "name": "Proprietario",
+          "description": "F se o circuito pertencer a area da barra definida no campo Da Barra. T se o circuito pertencer a area da barra definida no campo Para Barra.",
+          "colspec": {"start": 17, "end": 18},
+          "type": "str",
+          "required": false,
+          "default": "F"
+        },
+        "B": {
+          "name": "Bypass",
+          "description": "L se a chave de bypass estiver fechada (ligado). D se a chave de bypass estiver aberta (desligado).",
+          "colspec": {"start": 18, "end": 19},
+          "type": "str",
+          "required": false,
+          "default": "D"
+        },
+        "Xmin": {
+          "name": "Valor Minimo",
+          "description": "Valor minimo da reatancia do CSC, em %.",
+          "colspec": {"start": 25, "end": 31},
+          "type": "float",
+          "required": false,
+          "default": -9999.0
+        },
+        "Xmax": {
+          "name": "Valor Maximo",
+          "description": "Valor maximo da reatancia do CSC, em %.",
+          "colspec": {"start": 31, "end": 37},
+          "type": "float",
+          "required": false,
+          "default": 9999.0
+        },
+        "Xv": {
+          "name": "Valor Inicial",
+          "description": "Valor inicial da reatancia do CSC, em %.",
+          "colspec": {"start": 37, "end": 43},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "C": {
+          "name": "Modo de Controle",
+          "description": "P - Potencia constante. I - Corrente constante. X - Reatancia constante (no Xv).",
+          "colspec": {"start": 43, "end": 44},
+          "type": "str",
+          "required": false,
+          "default": "X"
+        },
+        "Vsp": {
+          "name": "Valor Especificado",
+          "description": "Fluxo de Potencia Ativa no CSC, em MW, se o modo de controle P; Modulo da Corrente no CSC, em pu, se o modo de controle I; ou Reatancia do CSC, em %, se o modo de controle X.",
+          "colspec": {"start": 45, "end": 51},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Ext": {
+          "name": "Extremidade de Medicao",
+          "description": "Numero da barra terminal do CSC na qual a potencia ou a corrente e medida.",
+          "colspec": {"start": 52, "end": 57},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "Nst": {
+          "name": "Numero de Estagios",
+          "description": "Numero de estagios do CSC discreto (TSSC).",
+          "colspec": {"start": 57, "end": 60},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "Cn": {
+          "name": "Capacidade Normal",
+          "description": "Capacidade de carregamento do CSC em condicoes normais, em MVA.",
+          "colspec": {"start": 60, "end": 64},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Ce": {
+          "name": "Capacidade de Emergencia",
+          "description": "Capacidade de carregamento do CSC em condicoes de emergencia, em MVA.",
+          "colspec": {"start": 64, "end": 68},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Cq": {
+          "name": "Capacidade de Equipamento",
+          "description": "Capacidade de carregamento do equipamento com menor capacidade de carregamento conectado em serie com o CSC, em MVA.",
+          "colspec": {"start": 68, "end": 72},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "A1": {
+          "name": "Agregador 1",
+          "description": ".",
+          "colspec": {"start": 72, "end": 75},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "A2": {
+          "name": "Agregador 2",
+          "description": ".",
+          "colspec": {"start": 75, "end": 78},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "A3": {
+          "name": "Agregador 3",
+          "description": ".",
+          "colspec": {"start": 78, "end": 81},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "A4": {
+          "name": "Agregador 4",
+          "description": ".",
+          "colspec": {"start": 81, "end": 84},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "A5": {
+          "name": "Agregador 5",
+          "description": ".",
+          "colspec": {"start": 84, "end": 87},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "A6": {
+          "name": "Agregador 6",
+          "description": ".",
+          "colspec": {"start": 87, "end": 90},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "A7": {
+          "name": "Agregador 7",
+          "description": ".",
+          "colspec": {"start": 90, "end": 93},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "A8": {
+          "name": "Agregador 8",
+          "description": ".",
+          "colspec": {"start": 93, "end": 96},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "A9": {
+          "name": "Agregador 9",
+          "description": ".",
+          "colspec": {"start": 96, "end": 99},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "A10": {
+          "name": "Agregador 10",
+          "description": ".",
+          "colspec": {"start": 99, "end": 102},
+          "type": "str",
+          "required": false,
+          "default": null
+        }
+      }
+    },
+    "DCER": {
+      "has_terminator": true,
+      "header_suffix": "",
+      "multiline_separator": null,
+      "header_field_count": null,
+      "fields": {
+        "Num": {
+          "name": "Barra",
+          "description": "Numero da Barra como definido no DBAR.",
+          "colspec": {"start": 0, "end": 5},
+          "type": "int",
+          "required": true,
+          "default": null
+        },
+        "O": {
+          "name": "Operao",
+          "description": "A ou 0 - adicao de dados. E ou 1 - eliminao de dados. M ou 2 - modificao de dados.",
+          "colspec": {"start": 6, "end": 7},
+          "type": "str",
+          "required": false,
+          "default": "A"
+        },
+        "Gr": {
+          "name": "Grupo",
+          "description": "Numero de identificao do grupo de compensadores estaticos de reativos.",
+          "colspec": {"start": 8, "end": 10},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "Un": {
+          "name": "Unidades",
+          "description": "Numero de unidades iguais que compoem o grupo de CER.",
+          "colspec": {"start": 11, "end": 13},
+          "type": "int",
+          "required": false,
+          "default": 1
+        },
+        "Kb": {
+          "name": "Barra Controlada",
+          "description": "Numero da barra no DBAR cuja tensao sera controlada. Default e a propria barra.",
+          "colspec": {"start": 14, "end": 19},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "Incl": {
+          "name": "Inclinacao",
+          "description": "Valor da inclinacao da reta que define a parte linear da curva de controle do modelo do Compensador Estatico de Reativo, em %.",
+          "colspec": {"start": 20, "end": 26},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Qg": {
+          "name": "Geracao Reativa",
+          "description": "Valor atual de geracao reativa.",
+          "colspec": {"start": 27, "end": 32},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Qn": {
+          "name": "Geracao Reativa Minima",
+          "description": "Valor da geracao reativa minima, em Mvar, que define os limites da parte linear da curva de controle.",
+          "colspec": {"start": 32, "end": 37},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Qm": {
+          "name": "Geracao Reativa Maxima",
+          "description": "Valor da geracao reativa maxima, em Mvar, que define os limites da parte linear da curva de controle.",
+          "colspec": {"start": 37, "end": 42},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "C": {
+          "name": "Modo de Controle",
+          "description": "P: Controle por potencia gerada pelo CER. I: Controle por corrente injetada pelo CER.",
+          "colspec": {"start": 43, "end": 44},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "E": {
+          "name": "Estado",
+          "description": "L se o grupo de compensadores estiver em operacao (ligado). D se o grupo de compensadores estiver fora de operacao (desligado).",
+          "colspec": {"start": 45, "end": 46},
+          "type": "str",
+          "required": false,
+          "default": "L"
+        },
+        "L": {
+          "name": "Modo de Correcao de Limites",
+          "description": "Ativa ou nao a opcao para corrigir os limites de reativos informados nos campos Qn e Qm. T Modo de correcao por transformador. L Limites locais, sem que haja correcao.",
+          "colspec": {"start": 47, "end": 48},
+          "type": "str",
+          "required": false,
+          "default": "L"
+        }
+      }
+    },
+    "DCTR": {
+      "has_terminator": true,
+      "header_suffix": "",
+      "multiline_separator": null,
+      "header_field_count": null,
+      "fields": {
+        "De": {
+          "name": "Barra De",
+          "description": "Numero da barra de uma das extremidades do circuito como definido no campo Numero do Codigo de Execucao DBAR.",
+          "colspec": {"start": 0, "end": 5},
+          "type": "int",
+          "required": true,
+          "default": null
+        },
+        "O": {
+          "name": "Operacao",
+          "description": "A ou 0 - adicao de dados. E ou 1 - eliminacao de dados. M ou 2 - modificacao de dados.",
+          "colspec": {"start": 6, "end": 7},
+          "type": "str",
+          "required": false,
+          "default": "A"
+        },
+        "Para": {
+          "name": "Barra Para",
+          "description": "Numero da barra da outra extremidade do circuito como definido no campo Numero do Codigo de Execucao DBAR.",
+          "colspec": {"start": 8, "end": 13},
+          "type": "int",
+          "required": true,
+          "default": null
+        },
+        "Nc": {
+          "name": "Circuito",
+          "description": "Numero de identificacao do circuito CA em paralelo.",
+          "colspec": {"start": 14, "end": 16},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "Vmin": {
+          "name": "Tensao Minima",
+          "description": "Valor minimo do modulo da tensao da barra controlada, em p.u.",
+          "colspec": {"start": 17, "end": 21},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Vmax": {
+          "name": "Tensao Maxima",
+          "description": "Valor maximo do modulo da tensao da barra controlada, em p.u.",
+          "colspec": {"start": 22, "end": 26},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Tc": {
+          "name": "Tipo de Controle",
+          "description": "C Centro da Faixa; L Limites da Faixa.",
+          "colspec": {"start": 27, "end": 28},
+          "type": "str",
+          "required": false,
+          "default": "C"
+        },
+        "M": {
+          "name": "Modo de Controle",
+          "description": "C Continuo; D Discreto.",
+          "colspec": {"start": 29, "end": 30},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "Fmin": {
+          "name": "Fase",
+          "description": "Valor minimo do angulo de fase, em graus.",
+          "colspec": {"start": 31, "end": 37},
+          "type": "float",
+          "required": false,
+          "default": null,
+          "implicit_scale": 1,
+          "preserve_trailing_dot": true
+        },
+        "Fmax": {
+          "name": "Fase",
+          "description": "Valor maximo do angulo de fase, em graus.",
+          "colspec": {"start": 38, "end": 44},
+          "type": "float",
+          "required": false,
+          "default": null,
+          "implicit_scale": 1,
+          "preserve_trailing_dot": true
+        },
+        "Mc": {
+          "name": "Tipo de Controle",
+          "description": "F Fixo; C Corrente; P Potencia",
+          "colspec": {"start": 45, "end": 46},
+          "type": "str",
+          "required": false,
+          "default": "F"
+        },
+        "Vsp": {
+          "name": "Valor Especificado",
+          "description": "Valor especificado para a corrente (tipo de controle C) em pu, ou para potencia ativa (tipo de controle P) em MW.",
+          "colspec": {"start": 47, "end": 53},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Ext": {
+          "name": "Extremidade de Medicao",
+          "description": "Barra na qual sera efetuada a medicao da variavel de controle.",
+          "colspec": {"start": 54, "end": 59},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "Ns": {
+          "name": "Nmero de Taps",
+          "description": "Numero de posicoes do tap do transformador defasador, incluindo o minimo e maximo",
+          "colspec": {"start": 60, "end": 62},
+          "type": "int",
+          "required": false,
+          "default": 99
+        }
+      }
+    },
+    "DGLT": {
+      "has_terminator": true,
+      "header_suffix": "",
+      "multiline_separator": null,
+      "header_field_count": null,
+      "fields": {
+        "Grupo": {
+          "name": "Grupo",
+          "description": "Identificador do grupo de limite de tensao, como definido no campo Grupo de Limite de Tensao do DBAR.",
+          "colspec": {"start": 0, "end": 2},
+          "type": "str",
+          "required": true,
+          "default": null
+        },
+        "Vmin": {
+          "name": "Limite Minimo",
+          "description": "Valor minimo de tensao a ser associado ao grupo de limite de tensao, em p.u.",
+          "colspec": {"start": 3, "end": 8},
+          "type": "float",
+          "required": false,
+          "default": 0.8
+        },
+        "Vmax": {
+          "name": "Limite Maximo",
+          "description": "Valor maximo de tensao a ser associado ao grupo de limite de tensao, em p.u.",
+          "colspec": {"start": 9, "end": 14},
+          "type": "float",
+          "required": false,
+          "default": 1.2
+        },
+        "Vmne": {
+          "name": "Limite Minimo em Emergencia",
+          "description": "Valor minimo de tensao em condicoes de emergencia, em p.u.",
+          "colspec": {"start": 15, "end": 20},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Vmxe": {
+          "name": "Limite Maximo em Emergencia",
+          "description": "Valor maximo de tensao em condicoes de emergencia, em p.u.",
+          "colspec": {"start": 21, "end": 26},
+          "type": "float",
+          "required": false,
+          "default": null
+        }
+      }
+    },
+    "DARE": {
+      "has_terminator": true,
+      "header_suffix": "",
+      "multiline_separator": null,
+      "header_field_count": null,
+      "fields": {
+        "Num": {
+          "name": "Numero",
+          "description": "Numero da area, como definido no campo area do Codigo de Execucao DBAR.",
+          "colspec": {"start": 0, "end": 3},
+          "type": "int",
+          "required": true,
+          "default": null
+        },
+        "Xchg": {
+          "name": "Intercambio liquido",
+          "description": "Valor liquido do intercambio da area, em MW (valor positivo para exportacao e negativo para importacao).",
+          "colspec": {"start": 7, "end": 13},
+          "type": "float",
+          "required": false,
+          "default": 0.0
+        },
+        "Nome": {
+          "name": "Nome",
+          "description": "Identificacao alfanumerica da area.",
+          "colspec": {"start": 18, "end": 54},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "Xmin": {
+          "name": "Intercambio Minimo",
+          "description": "Valor minimo do intercambio liquido da area, em MW.",
+          "colspec": {"start": 55, "end": 61},
+          "type": "float",
+          "required": false,
+          "default": 0.0
+        },
+        "Xmax": {
+          "name": "Intercambio Maximo",
+          "description": "Valor maximo do intercambio liquido da area, em MW.",
+          "colspec": {"start": 62, "end": 68},
+          "type": "float",
+          "required": false,
+          "default": 0.0
+        }
+      }
+    },
+    "DTPF": {
+      "has_terminator": true,
+      "header_suffix": " CIRC",
+      "multiline_separator": null,
+      "header_field_count": null,
+      "fields": {
+        "De1": {
+          "name": "Da Barra 1",
+          "description": "Numero da barra de uma das extermidades do circuito como definido no DBAR.",
+          "colspec": {"start": 0, "end": 5},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "Para1": {
+          "name": "Para Barra 1",
+          "description": "Numero da barra da outra extremidade do circuito como definido no DBAR.",
+          "colspec": {"start": 6, "end": 11},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "Nc1": {
+          "name": "Circuito 1",
+          "description": "Numero de identificacao do circuito em paralelo.",
+          "colspec": {"start": 12, "end": 14},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "De2": {
+          "name": "Da Barra 2",
+          "description": "Numero da barra de uma das extermidades do circuito como definido no DBAR.",
+          "colspec": {"start": 15, "end": 20},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "Para2": {
+          "name": "Para Barra 2",
+          "description": "Numero da barra da outra extremidade do circuito como definido no DBAR.",
+          "colspec": {"start": 21, "end": 26},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "Nc2": {
+          "name": "Circuito 2",
+          "description": "Numero de identificacao do circuito em paralelo.",
+          "colspec": {"start": 27, "end": 29},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "De3": {
+          "name": "Da Barra 3",
+          "description": "Numero da barra de uma das extermidades do circuito como definido no DBAR.",
+          "colspec": {"start": 30, "end": 35},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "Para3": {
+          "name": "Para Barra 3",
+          "description": "Numero da barra da outra extremidade do circuito como definido no DBAR.",
+          "colspec": {"start": 36, "end": 41},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "Nc3": {
+          "name": "Circuito 3",
+          "description": "Numero de identificacao do circuito em paralelo.",
+          "colspec": {"start": 42, "end": 44},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "De4": {
+          "name": "Da Barra 4",
+          "description": "Numero da barra de uma das extermidades do circuito como definido no DBAR.",
+          "colspec": {"start": 45, "end": 50},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "Para4": {
+          "name": "Para Barra 4",
+          "description": "Numero da barra da outra extremidade do circuito como definido no DBAR.",
+          "colspec": {"start": 51, "end": 56},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "Nc4": {
+          "name": "Circuito 4",
+          "description": "Numero de identificacao do circuito em paralelo.",
+          "colspec": {"start": 57, "end": 59},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "De5": {
+          "name": "Da Barra 5",
+          "description": "Numero da barra de uma das extermidades do circuito como definido no DBAR.",
+          "colspec": {"start": 60, "end": 65},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "Para5": {
+          "name": "Para Barra 5",
+          "description": "Numero da barra da outra extremidade do circuito como definido no DBAR.",
+          "colspec": {"start": 66, "end": 71},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "Nc5": {
+          "name": "Circuito 5",
+          "description": "Numero de identificacao do circuito em paralelo.",
+          "colspec": {"start": 72, "end": 74},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "O": {
+          "name": "O",
+          "description": "A - adicao de dados de fixacao na aplicacao do controle de tensao por variacao automatica de tap. E - eliminacao de dados.",
+          "colspec": {"start": 75, "end": 76},
+          "type": "str",
+          "required": false,
+          "default": "A"
+        }
+      }
+    },
+    "DELO": {
+      "has_terminator": true,
+      "header_suffix": "",
+      "multiline_separator": null,
+      "header_field_count": null,
+      "fields": {
+        "Num": {
+          "name": "Numero",
+          "description": "Numero de identificacao do elo CC.",
+          "colspec": {"start": 0, "end": 4},
+          "type": "int",
+          "required": true,
+          "default": null
+        },
+        "O": {
+          "name": "Operacao",
+          "description": "A ou 0 - adicao de dados. M ou 2 - modificacao de dados.",
+          "colspec": {"start": 5, "end": 6},
+          "type": "str",
+          "required": false,
+          "default": "A"
+        },
+        "V": {
+          "name": "Tensao",
+          "description": "Tensao nominal de operacao do elo CC, em kV.",
+          "colspec": {"start": 7, "end": 12},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "P": {
+          "name": "Base",
+          "description": "Base de potencia do elo CC, em MW.",
+          "colspec": {"start": 13, "end": 18},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Nome": {
+          "name": "Nome",
+          "description": "Identificacao afanumerica do nome do elo CC.",
+          "colspec": {"start": 19, "end": 39},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "M": {
+          "name": "Modo High Mvar",
+          "description": "Seleciona o modo de operacao do elo CC entre modo normal (N) e modo High Mvar Consumption (H).",
+          "colspec": {"start": 40, "end": 41},
+          "type": "str",
+          "required": false,
+          "default": "N"
+        },
+        "E": {
+          "name": "Estado",
+          "description": "L se o elo CC estiver em operacao (ligado). D se fora de operacao (desligado).",
+          "colspec": {"start": 42, "end": 43},
+          "type": "str",
+          "required": false,
+          "default": "L"
+        },
+        "T": {
+          "name": "Tipo do elo CC",
+          "description": "L se o elo CC for LCC. V se for VSC.",
+          "colspec": {"start": 44, "end": 45},
+          "type": "str",
+          "required": false,
+          "default": "L"
+        }
+      }
+    },
+    "DCBA": {
+      "has_terminator": true,
+      "header_suffix": "",
+      "multiline_separator": null,
+      "header_field_count": null,
+      "fields": {
+        "Num": {
+          "name": "Numero",
+          "description": "Numero de identificacao da barra CC.",
+          "colspec": {"start": 0, "end": 4},
+          "type": "int",
+          "required": true,
+          "default": null
+        },
+        "O": {
+          "name": "Operacao",
+          "description": "A ou 0 - adicao de dados de barra CC. M ou 2 - modificacao de dados de barra CC.",
+          "colspec": {"start": 5, "end": 6},
+          "type": "str",
+          "required": false,
+          "default": "A"
+        },
+        "T": {
+          "name": "Tipo",
+          "description": "0 - barra sem tenso especificada. 1 - barra com tenso especificada (barra de referencia).",
+          "colspec": {"start": 7, "end": 8},
+          "type": "str",
+          "required": false,
+          "default": "0"
+        },
+        "P": {
+          "name": "Polaridade",
+          "description": "+ - indicando que a barra pertence ao polo positivo. - - indicando que a barra pertence ao polo negativo. 0 - indicando barra neutra.",
+          "colspec": {"start": 8, "end": 9},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "Nome": {
+          "name": "Nome",
+          "description": "Identificacao alfanumerica da barra.",
+          "colspec": {"start": 9, "end": 21},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "Gl": {
+          "name": "Grupo de limite de tensao",
+          "description": "Nao utilizado nesta versao.",
+          "colspec": {"start": 21, "end": 23},
+          "type": "str",
+          "required": false,
+          "default": "0"
+        },
+        "Vd": {
+          "name": "Tensao",
+          "description": "Valor inicial da magnitude de tensao da barra, em kV. Para barra do tipo 1, este campo deve ser preenchido com o valor da tensao a ser mantido constante.",
+          "colspec": {"start": 23, "end": 28},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Rs": {
+          "name": "Eletrodo de Terra",
+          "description": "Valor da resistencia do eletrodo de terra, em ohm, para a barra neutra (polaridade zero).",
+          "colspec": {"start": 66, "end": 71},
+          "type": "float",
+          "required": false,
+          "default": 0.0
+        },
+        "Elo": {
+          "name": "Nmero do elo CC",
+          "description": "Numero do elo CC, como definido no DELO. Todas as barras de um mesmo polo ou bipolo devem pertencer ao mesmo elo CC.",
+          "colspec": {"start": 71, "end": 75},
+          "type": "int",
+          "required": false,
+          "default": 1
+        }
+      }
+    },
+    "DCLI": {
+      "has_terminator": true,
+      "header_suffix": "",
+      "multiline_separator": null,
+      "header_field_count": null,
+      "fields": {
+        "De": {
+          "name": "Da Barra",
+          "description": "Numero da barra de uma das extremidades da linha CC, como definido no DCBA.",
+          "colspec": {"start": 0, "end": 4},
+          "type": "int",
+          "required": true,
+          "default": null
+        },
+        "O": {
+          "name": "Operacao",
+          "description": "A ou 0 - adicao de dados de linha CC. M ou 2 - modificacao de dados de linha CC.",
+          "colspec": {"start": 5, "end": 6},
+          "type": "str",
+          "required": false,
+          "default": "A"
+        },
+        "Para": {
+          "name": "Para Barra",
+          "description": "Numero da barra da outra extremidade da linha CC, como definido no DCBA.",
+          "colspec": {"start": 8, "end": 12},
+          "type": "int",
+          "required": true,
+          "default": null
+        },
+        "Nc": {
+          "name": "Circuito",
+          "description": "Numero de identificacao da linha CC em paralelo.",
+          "colspec": {"start": 12, "end": 14},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "P": {
+          "name": "Proprietario",
+          "description": "Nao utilizado nesta versao.",
+          "colspec": {"start": 15, "end": 16},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "R": {
+          "name": "Resistencia",
+          "description": "Resistencia da linha CC, em ohm.",
+          "colspec": {"start": 17, "end": 23},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "L": {
+          "name": "Indutancia",
+          "description": "Indutancia da linha CC, em mH.",
+          "colspec": {"start": 23, "end": 29},
+          "type": "float",
+          "required": false,
+          "default": 0.0
+        },
+        "Cn": {
+          "name": "Capacidade",
+          "description": "Capacidade de carregamento da linha CC, em MW.",
+          "colspec": {"start": 60, "end": 64},
+          "type": "float",
+          "required": false,
+          "default": null
+        }
+      }
+    },
+    "DCNV": {
+      "has_terminator": true,
+      "header_suffix": "",
+      "multiline_separator": null,
+      "header_field_count": null,
+      "fields": {
+        "Num": {
+          "name": "Numero",
+          "description": "Numero de identificacao do conversor.",
+          "colspec": {"start": 0, "end": 4},
+          "type": "int",
+          "required": true,
+          "default": null
+        },
+        "O": {
+          "name": "Operacao",
+          "description": "A ou 0 - adicao de dados. M ou 2 - modificacao de dados.",
+          "colspec": {"start": 5, "end": 6},
+          "type": "str",
+          "required": false,
+          "default": "A"
+        },
+        "Ca": {
+          "name": "Numero da Barra CA",
+          "description": "Numero da barra CA, como definido no DBAR.",
+          "colspec": {"start": 7, "end": 12},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "Cc": {
+          "name": "Numero da Barra CC",
+          "description": "Numero da barra CC, como definido no DCBA.",
+          "colspec": {"start": 13, "end": 17},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "El": {
+          "name": "Numero da Barra Neutra",
+          "description": "Numero da barra neutra, como definido no DCBA.",
+          "colspec": {"start": 18, "end": 22},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "T": {
+          "name": "Modo de operacao",
+          "description": "R - retificador. I - inversor.",
+          "colspec": {"start": 23, "end": 24},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "P": {
+          "name": "Pontes",
+          "description": "Numero de pontes conversoras de seis pulsos.",
+          "colspec": {"start": 25, "end": 26},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "Ino": {
+          "name": "Corrente",
+          "description": "Corrente nominal do conversor, em A.",
+          "colspec": {"start": 27, "end": 32},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Xc": {
+          "name": "Reatancia de comutacao",
+          "description": "Reatancia de comutacao por ponte de seis pulsos na base de potencia do transformador conversor, em %.",
+          "colspec": {"start": 33, "end": 38},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Vfs": {
+          "name": "Tensao do secundario",
+          "description": "Tensao base fase-fase do secundario do transformador conversor de ponte de seis pulsos, em kV.",
+          "colspec": {"start": 39, "end": 44},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Snt": {
+          "name": "Potencia do transformador",
+          "description": "Potencia trifasica base do transformador conversor de ponte de seis pulsos, em MVA.",
+          "colspec": {"start": 45, "end": 50},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Rra": {
+          "name": "Resistencia do reator",
+          "description": "Resistencia do reator de alisamento, em ohm.",
+          "colspec": {"start": 51, "end": 56},
+          "type": "float",
+          "required": false,
+          "default": 0.0
+        },
+        "Lra": {
+          "name": "Indutancia do reator",
+          "description": "Indutancia do reator de alisamento, em mH.",
+          "colspec": {"start": 57, "end": 62},
+          "type": "float",
+          "required": false,
+          "default": 0.0
+        },
+        "Ccc": {
+          "name": "Capacitancia do CCC",
+          "description": "Capacitancia do CCC, em uF.",
+          "colspec": {"start": 63, "end": 68},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Fr": {
+          "name": "Frequencia",
+          "description": "Frequencia do sistema AC em que o CCC esta ligado, em Hz.",
+          "colspec": {"start": 69, "end": 71},
+          "type": "float",
+          "required": false,
+          "default": 60.0
+        }
+      }
+    },
+    "DCCV": {
+      "has_terminator": true,
+      "header_suffix": "",
+      "multiline_separator": null,
+      "header_field_count": null,
+      "fields": {
+        "Num": {
+          "name": "Numero",
+          "description": "Numero de identificacao do conversor, como definido no DCNV.",
+          "colspec": {"start": 0, "end": 4},
+          "type": "int",
+          "required": true,
+          "default": null
+        },
+        "O": {
+          "name": "Operacao",
+          "description": "A ou 0 - adicao de dados de controle de conversor. E ou 1 - eliminacao de dados de controle de conversor. M ou 2 - modificacao de dados de controle de conversor.",
+          "colspec": {"start": 5, "end": 6},
+          "type": "str",
+          "required": false,
+          "default": "A"
+        },
+        "F": {
+          "name": "Folga",
+          "description": "F - conversor de folga. N - conversor normal.",
+          "colspec": {"start": 7, "end": 8},
+          "type": "str",
+          "required": false,
+          "default": "N"
+        },
+        "M": {
+          "name": "Modo de Controle do Inversor",
+          "description": "G controle de gama. T controle da tensao da barra CA. Apenas para inversores CCC.",
+          "colspec": {"start": 8, "end": 9},
+          "type": "str",
+          "required": false,
+          "default": "G"
+        },
+        "C": {
+          "name": "Tipo de Controle Conversor",
+          "description": "C - conversor com controle de corrente constante. Controle P - conversor com controle de potencia constante.",
+          "colspec": {"start": 9, "end": 10},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "Vsp": {
+          "name": "Valor Especificado",
+          "description": "Valor especificado para o controle do conversor, em A se conversor de controle de corrente ou em MW se conversor de controle de potencia.",
+          "colspec": {"start": 11, "end": 16},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Marg": {
+          "name": "Margem de Corrente",
+          "description": "Margem de corrente do inversor, em % da corrente nominal, como definido no DCNV.",
+          "colspec": {"start": 17, "end": 22},
+          "type": "float",
+          "required": false,
+          "default": 10.0
+        },
+        "Imax": {
+          "name": "Maxima Sobrecorrente",
+          "description": "Maxima sobrecorrente permitida para o conversor, em % da corrente nominal, como definido no DCNV.",
+          "colspec": {"start": 23, "end": 28},
+          "type": "float",
+          "required": false,
+          "default": 9999.0
+        },
+        "Dsp": {
+          "name": "Angulo Conversor",
+          "description": "Angulo desejado de disparo (retificador) ou de extincao (inversor convencional), ou margem de comutacao (inversor CCC), em graus.",
+          "colspec": {"start": 29, "end": 34},
+          "type": "float",
+          "required": false,
+          "default": 0.0
+        },
+        "Dtn": {
+          "name": "Angulo Minimo",
+          "description": "Angulo minimo de disparo (retificador) ou de extincao (inversor convencional), ou margem de comutacao (inversor CCC), em graus.",
+          "colspec": {"start": 35, "end": 40},
+          "type": "float",
+          "required": false,
+          "default": 0.0
+        },
+        "Dtm": {
+          "name": "Angulo Maximo",
+          "description": "Angulo maximo de disparo (retificador) ou de extincao (inversor convencional), ou margem de comutacao (inversor CCC), em graus.",
+          "colspec": {"start": 41, "end": 46},
+          "type": "float",
+          "required": false,
+          "default": 0.0
+        },
+        "Tmn": {
+          "name": "Tap Minimo",
+          "description": "Tap minimo do transformador conversor.",
+          "colspec": {"start": 47, "end": 52},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Tmx": {
+          "name": "Tap Maximo",
+          "description": "Tap maximo do transformador conversor.",
+          "colspec": {"start": 53, "end": 58},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "S": {
+          "name": "Numero de Passos do Tap Transformador",
+          "description": "Numero de passos do tap do transformador.",
+          "colspec": {"start": 59, "end": 61},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "Vmn": {
+          "name": "Tenso CC Minima para Controle de Potencia",
+          "description": "Tensao CC, em p.u., abaixo da qual um conversor em controle de potencia passa a operar em controle de corrente.",
+          "colspec": {"start": 62, "end": 66},
+          "type": "float",
+          "required": false,
+          "default": 0.0,
+          "implicit_scale": 3,
+          "preserve_trailing_dot": true
+        },
+        "Tmh": {
+          "name": "Tap Modo High Mvar",
+          "description": "Valor adotado para o tap do conversor quando o elo esta operando em modo de HighMvar Consumption, como definido no DELO.",
+          "colspec": {"start": 67, "end": 72},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Ttr": {
+          "name": "Tap Modo Tensao Reduzida",
+          "description": "Valor adotado para o tap do conversor quando o elo esta operando em modo de tensao reduzida.",
+          "colspec": {"start": 73, "end": 78},
+          "type": "float",
+          "required": false,
+          "default": 1.0
+        }
+      }
+    },
+    "DVSC": {
+      "has_terminator": true,
+      "header_suffix": "",
+      "multiline_separator": null,
+      "header_field_count": null,
+      "fields": {
+        "No": {
+          "name": "Numero",
+          "description": "Numero de identificacao do elo CC utilizando conversores fonte de tensao.",
+          "colspec": {"start": 0, "end": 4},
+          "type": "int",
+          "required": true,
+          "default": null
+        },
+        "O": {
+          "name": "Operacao",
+          "description": "A ou 0 - adicao de dados. E ou 1 - eliminacao de dados. M ou 2 - modificacao de dados.",
+          "colspec": {"start": 5, "end": 6},
+          "type": "str",
+          "required": false,
+          "default": "A"
+        },
+        "E": {
+          "name": "Estado Operativo",
+          "description": "L se elo CC estiver em operacao (ligado). D se estiver fora de operacao (desligado).",
+          "colspec": {"start": 7, "end": 8},
+          "type": "str",
+          "required": false,
+          "default": "L"
+        },
+        "CA": {
+          "name": "Barra CA.",
+          "description": "Numero da barra CA do conversor, como definido no DBAR.",
+          "colspec": {"start": 9, "end": 14},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "CC": {
+          "name": "Barra CC.",
+          "description": "Numero da barra CC do conversor, como definido no DCBA.",
+          "colspec": {"start": 15, "end": 19},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "EL": {
+          "name": "Barra de Neutro.",
+          "description": "Numero da barra de neutro do conversor, como definido no DCBA.",
+          "colspec": {"start": 20, "end": 24},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "T": {
+          "name": "Modo de Operacao do Conversor",
+          "description": "R - retificador. I - inversor.",
+          "colspec": {"start": 25, "end": 26},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "Esp.": {
+          "name": "Valor Especificado",
+          "description": "Valor especificado para o controle do conversor. Se retificador, potencia CC especificado em MW no retificador. Se inversor, tensao CC especificada em kV no retificador.",
+          "colspec": {"start": 27, "end": 34},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Qmin": {
+          "name": "Potencia Reativa Minima",
+          "description": "Valor do limite minimo para potencia reativa do conversor, em Mvar.",
+          "colspec": {"start": 35, "end": 41},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Qmax": {
+          "name": "Potencia Reativa Maxima",
+          "description": "Valor do limite maximo para potencia reativa do conversor, em Mvar.",
+          "colspec": {"start": 41, "end": 47},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "IdCurvaPts": {
+          "name": "Curva por Pontos",
+          "description": "Identificador alfanumerico da curva por ponto que define a capacidade de geracao de potencia reativa do conversor, como definido no DCPT.",
+          "colspec": {"start": 47, "end": 59},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "Rarm": {
+          "name": "Resistencia do Braco",
+          "description": "Resistencia do braco de uma fase do conversor fonte de tensao, em ohms.",
+          "colspec": {"start": 60, "end": 66},
+          "type": "float",
+          "required": false,
+          "default": 0.0
+        },
+        "Rtrf": {
+          "name": "Resistencia do Transformador",
+          "description": "Resistencia do transformador elevador, em ohms.",
+          "colspec": {"start": 67, "end": 73},
+          "type": "float",
+          "required": false,
+          "default": 0.0
+        },
+        "Xtrf": {
+          "name": "Reatancia do Transformador",
+          "description": "Reatancia do transformador elevador, em ohms.",
+          "colspec": {"start": 74, "end": 79},
+          "type": "float",
+          "required": false,
+          "default": null
+        },        
+        "SbsT": {
+          "name": "Potencia Base do Secundario do Transformador do VSC",
+          "description": "Potencia base do secundario do transformador elevador do VSC, em MVA.",
+          "colspec": {"start": 79, "end": 85},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "VbsS": {
+          "name": "Tensao Base Fase-Fase do Secundario do Transformador do VSC",
+          "description": "Tensao base, fase-fase, do secundario do transformador elevador do VSC, em kV.",
+          "colspec": {"start": 85, "end": 91},
+          "type": "float",
+          "required": false,
+          "default": null
+        }
+      }
+    },
+    "DGBT": {
+      "has_terminator": true,
+      "header_suffix": "",
+      "multiline_separator": null,
+      "header_field_count": null,
+      "fields": {
+        "G": {
+          "name": "Grupo",
+          "description": "Identificador do grupo base de tensao, como definido no DBAR.",
+          "colspec": {"start": 0, "end": 2},
+          "type": "str",
+          "required": true,
+          "default": null
+        },
+        "kV": {
+          "name": "Tensao",
+          "description": "Tensao base associada ao grupo, em kV.",
+          "colspec": {"start": 3, "end": 8},
+          "type": "float",
+          "required": false,
+          "default": 1.0
+        }
+      }
+    },
+    "DCMT": {
+      "has_terminator": true,
+      "header_suffix": "",
+      "multiline_separator": null,
+      "header_field_count": null,
+      "fields": {
+        "Comentarios": {
+          "name": "Comentarios",
+          "description": "Comentarios, em formato ASCII ou texto.",
+          "colspec": {"start": 0, "end": 81},
+          "type": "str",
+          "required": false,
+          "default": null
+        }
+      }
+    },
+    "DCAI": {
+      "has_terminator": true,
+      "header_suffix": "",
+      "multiline_separator": null,
+      "header_field_count": null,
+      "fields": {
+        "Num": {
+          "name": "Barra",
+          "description": "Numero de identificacao da barra, como definido no DBAR, a qual esta conectado o grupo de cargas individualizadas.",
+          "colspec": {"start": 0, "end": 5},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "O": {
+          "name": "Operacao",
+          "description": "A ou 0 - adicao de dados de grupo de cargas individualizadas. E ou 1 - eliminacao de dados de grupo de cargas individualizadas. M ou 2 - modificacao de dados de grupo de cargas individualizadas.",
+          "colspec": {"start": 6, "end": 7},
+          "type": "str",
+          "required": false,
+          "default": "A"
+        },
+        "Gr": {
+          "name": "Grupo",
+          "description": "Numero de identificacao do grupo de cargas individualizadas.",
+          "colspec": {"start": 9, "end": 11},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "E": {
+          "name": "Estado",
+          "description": "L se o grupo de carga estiver em operacao (ligado). D se o grupo de carga estiver fora de operacao (desligado).",
+          "colspec": {"start": 12, "end": 13},
+          "type": "str",
+          "required": false,
+          "default": "L"
+        },
+        "U": {
+          "name": "Unidades",
+          "description": "Numero total de unidades iguais que compem o grupo de cargas individualizadas.",
+          "colspec": {"start": 14, "end": 17},
+          "type": "int",
+          "required": false,
+          "default": 1
+        },
+        "UOp": {
+          "name": "Unidades em Operacao",
+          "description": "Numero de unidades iguais que compoem o grupo de cargas individualizadas que estao efetivamente em operacao.",
+          "colspec": {"start": 18, "end": 21},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "P": {
+          "name": "Carga Ativa",
+          "description": "Valor da carga ativa do grupo de cargas individualizadas, em MW. Valor para a carga na tensao especificada.",
+          "colspec": {"start": 22, "end": 27},
+          "type": "float",
+          "required": false,
+          "default": 0.0
+        },
+        "Q": {
+          "name": "Carga Reativa",
+          "description": "Valor da carga reativa do grupo de cargas individualizadas, em Mvar. Valor para a carga na tensao especificada.",
+          "colspec": {"start": 28, "end": 33},
+          "type": "float",
+          "required": false,
+          "default": 0.0
+        },
+        "A": {
+          "name": "Parametro A",
+          "description": "Parcela de carga ativa individualizada que varia linearmente com a magnitude da tenso, em %.",
+          "colspec": {"start": 34, "end": 37},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "B": {
+          "name": "Parametro B",
+          "description": "Parcela de carga ativa individualizada que varia com o quadrado da magnitude da tenso, em %.",
+          "colspec": {"start": 38, "end": 41},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "C": {
+          "name": "Parametro C",
+          "description": "Parcela de carga reativa individualizada que varia linearmente com a magnitude da tenso, em %.",
+          "colspec": {"start": 42, "end": 45},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "D": {
+          "name": "Parametro D",
+          "description": "Parcela de carga reativa individualizada que varia com o quadrado da magnitude da tenso, em %.",
+          "colspec": {"start": 46, "end": 49},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Vfl": {
+          "name": "Tensao",
+          "description": "Valor de tensao abaixo do qual a carga funcional individualizada passa a constante ser modelada como uma impedancia constante, em %.",
+          "colspec": {"start": 50, "end": 55},
+          "type": "float",
+          "required": false,
+          "default": null
+        },
+        "Vf": {
+          "name": "Tensao para Definicao de Carga",
+          "description": "Entre neste campo com o valor em p.u. da tensao para a qual foi medido o valor das parcelas ativa e reativa da carga individualizada definidos.",
+          "colspec": {"start": 56, "end": 60},
+          "type": "float",
+          "required": false,
+          "default": 1.0,
+          "implicit_scale": 3,
+          "preserve_trailing_dot": true
+        }
+      }
+    },
+    "DGEI": {
+      "has_terminator": true,
+      "header_suffix": "",
+      "multiline_separator": null,
+      "header_field_count": null,
+      "fields": {
+        "Num": {
+          "name": "Barra",
+          "description": "Numero de identificacao da barra, como definido no DBAR.",
+          "colspec": {"start": 0, "end": 5},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "O": {
+          "name": "Operacao",
+          "description": "A ou 0 - adicao de dados de grupo de geradores individualizados. E ou 1 - eliminacao de dados de grupo de geradores individualizados. M ou 2 - modificacao de dados de grupo de geradores individualizados.",
+          "colspec": {"start": 6, "end": 7},
+          "type": "str",
+          "required": false,
+          "default": "A"
+        },
+        "A": {
+          "name": "Modo automatico",
+          "description": "S - calcula automaticamente o numero de unidades despachadas a partir do Pg do DBAR, alem de atualizar a impedancia do trafo elevador. N - redefine o Pg do DBAR pelos valo no DGEI.",
+          "colspec": {"start": 7, "end": 8},
+          "type": "str",
+          "required": false,
+          "default": "N"
+        },
+        "Gr": {
+          "name": "Grupo",
+          "description": "Numero de identificacao do grupo de geradores individualizados.",
+          "colspec": {"start": 9, "end": 11},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "E": {
+          "name": "Estado",
+          "description": "L se o grupo de geradores estiver em operacao (ligado). D se o grupo de geradores estiver fora de operacao (desligado).",
+          "colspec": {"start": 12, "end": 13},
+          "type": "str",
+          "required": false,
+          "default": "L"
+        },
+        "U": {
+          "name": "Unidades",
+          "description": "Numero de unidades iguais que compem o grupo de geradores individualizados.",
+          "colspec": {"start": 13, "end": 16},
+          "type": "int",
+          "required": false,
+          "default": 1
+        },
+        "UOp": {
+          "name": "Unidades em Operacao",
+          "description": "Numero de unidades em operacao que compem o grupo de geradores individualizados.",
+          "colspec": {"start": 16, "end": 19},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "UOn": {
+          "name": "Unidades Minimas em Operacao",
+          "description": "Numero de unidades minimo em operacao que compem o grupo de geradores individualizados.",
+          "colspec": {"start": 19, "end": 22},
+          "type": "int",
+          "required": false,
+          "default": 1
+        },
+        "Pg": {
+          "name": "Geracao Ativa",
+          "description": "Valor de geracao de potencia ativa para cada unidade do grupo, em MW.",
+          "colspec": {"start": 22, "end": 27},
+          "type": "float",
+          "required": false,
+          "default": 0.0
+        },
+        "Qg": {
+          "name": "Geracao Reativa",
+          "description": "Valor de geracao de potencia reativa para cada unidade do grupo, em Mvar.",
+          "colspec": {"start": 27, "end": 32},
+          "type": "float",
+          "required": false,
+          "default": 0.0
+        },
+        "Qn": {
+          "name": "Geracao Reativa Minima",
+          "description": "Valor do limite minimo de geracao de potencia reativa para cada unidade do grupo, em Mvar.",
+          "colspec": {"start": 32, "end": 37},
+          "type": "float",
+          "required": false,
+          "default": -9999.0
+        },
+        "Qm": {
+          "name": "Geracao Reativa Maxima",
+          "description": "Valor do limite maximo de geracao de potencia reativa para cada unidade do grupo, em Mvar.",
+          "colspec": {"start": 37, "end": 42},
+          "type": "float",
+          "required": false,
+          "default": 99999.0
+        },
+        "Xd": {
+          "name": "Xd",
+          "description": "Reatancia de eixo direto de cada unidade do grupo, em %, na base da maquina.",
+          "colspec": {"start": 49, "end": 54},
+          "type": "float",
+          "required": false,
+          "default": 0.0,
+          "implicit_scale": 1,
+          "preserve_trailing_dot": true
+        },
+        "Xq": {
+          "name": "Xq",
+          "description": "Reatancia de eixo quadratura de cada unidade do grupo, em %, na base da maquina.",
+          "colspec": {"start": 54, "end": 59},
+          "type": "float",
+          "required": false,
+          "default": 0.0,
+          "implicit_scale": 1,
+          "preserve_trailing_dot": true
+        },
+        "Xl": {
+          "name": "Xl",
+          "description": "Reatancia de dispersao de cada unidade do grupo, em %, na base da maquina.",
+          "colspec": {"start": 59, "end": 64},
+          "type": "float",
+          "required": false,
+          "default": 0.0,
+          "implicit_scale": 1,
+          "preserve_trailing_dot": true
+        },
+        "fp": {
+          "name": "fp",
+          "description": "Fator de Potencia nominal de cada unidade do grupo.",
+          "colspec": {"start": 65, "end": 69},
+          "type": "float",
+          "required": false,
+          "default": 1.0,
+          "implicit_scale": 2,
+          "preserve_trailing_dot": true
+        },
+        "Sn": {
+          "name": "Potencia Aparente",
+          "description": "Potencia aparente nominal em MVA de cada unidade do grupo.",
+          "colspec": {"start": 69, "end": 74},
+          "type": "float",
+          "required": false,
+          "default": 99999.0,
+          "implicit_scale": 2,
+          "preserve_trailing_dot": true
+        },
+        "Ptu": {
+          "name": "Potencia da Turbina",
+          "description": "Limite mecanico de cada unidade do grupo, em MW.",
+          "colspec": {"start": 74, "end": 80},
+          "type": "float",
+          "required": false,
+          "default": 99999.0,
+          "implicit_scale": 3,
+          "preserve_trailing_dot": true
+        },
+        "Pmn": {
+          "name": "Potencia Minima",
+          "description": "Potencia minima de cada unidade do grupo, em MW.",
+          "colspec": {"start": 80, "end": 86},
+          "type": "float",
+          "required": false,
+          "default": 0.0
+        },
+        "R": {
+          "name": "Estatismo",
+          "description": "Estatismo de cada unidade do grupo, em % na base do sistema.",
+          "colspec": {"start": 86, "end": 91},
+          "type": "float",
+          "required": false,
+          "default": 0.0
+        },
+        "Fp": {
+          "name": "Fator de Participacao de Potencia Ativa",
+          "description": "Fator de participacao do grupo na quantidade de potencia ativa necessaria para atender ao desbalanco de carga/geracao em %.",
+          "colspec": {"start": 91, "end": 96},
+          "type": "float",
+          "required": false,
+          "default": 0.0
+        },
+        "FpR": {
+          "name": "Fator de Participacao de Potencia Reativa",
+          "description": "Fator de participacao do grupo na quantidade de potencia reativa necessaria para controle de tensao de barra remota em %.",
+          "colspec": {"start": 96, "end": 101},
+          "type": "float",
+          "required": false,
+          "default": 100.0
+        },
+        "IdCurvaPts": {
+          "name": "Curva por Pontos",
+          "description": "Identificador alfanumerico da curva por ponto que define a capacidade de geracao de potencia reativa do grupo, como definido no DCPT.",
+          "colspec": {"start": 101, "end": 113},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "UOT": {
+          "name": "Unidades por Transformador",
+          "description": "Numero de unidades maxima de maquinas que operam com uma unidade de transformador.",
+          "colspec": {"start": 113, "end": 116},
+          "type": "int",
+          "required": false,
+          "default": 1
+        },
+        "AgS": {
+          "name": "Agregador de Sincrono",
+          "description": "Identificador numerico que agrupa os grupos de maquinas de uma usina que podem operar como geradores e compensadores sincronos.",
+          "colspec": {"start": 117, "end": 120},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "AgT": {
+          "name": "Agregador de Transformadores",
+          "description": "Identificador numerico que agrupa os grupos de maquinas que operam em ambos os secundarios de um transformador de 3 enrolamentos.",
+          "colspec": {"start": 121, "end": 124},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "Tip": {
+          "name": "Tipo de Geracao",
+          "description": "Identificador alfanumerico do tipo de geracao a que o grupo se refere.",
+          "colspec": {"start": 125, "end": 128},
+          "type": "str",
+          "required": false,
+          "default": null
+        },
+        "(NBA)":{
+          "name": "Barra de Alta",
+          "description": "Identificacao do numero da barra do lado de alta tensao do transformador conectado ao grupo, conforme DBAR.",
+          "colspec": {"start": 129, "end": 134},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "Nc": {
+          "name": "Numero do Circuito",
+          "description": "Numero do circuito do transformador conectado ao grupo, conforme definido no DLIN.",
+          "colspec": {"start": 134, "end": 136},
+          "type": "int",
+          "required": false,
+          "default": null
+        },
+        "M": {
+          "name": "Modo de Operacao",
+          "description": "MOdo em que grupo esta operando: G ou N - gerador. S - Sincrono.",
+          "colspec": {"start": 137, "end": 138},
+          "type": "str",
+          "required": false,
+          "default": "G"
+        }
+      }
+    }
+  }
+}
+
